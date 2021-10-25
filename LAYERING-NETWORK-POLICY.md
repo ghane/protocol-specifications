@@ -39,7 +39,7 @@ Readers of this document must:
 
 Beckn protocol is a set of specifications that enables any two platforms to perform commercial transactions by implementing an API with standard action calls and schema. These specifications are by-design generic and therefore, sector agnostic. However, to establish a smart contract between a BAP and a BPP, additional domain-specific information must sometimes be transmitted between the platforms. For example, a logistics network might have different allowed values for the types of fulfillments it supports like “HOME-DELIVERY” and “STORE-PICKUP” as opposed to an education network where the allowed values may be “TELE-CONSULTATION” or “PHYSICAL-CONSULTATION''. These values are not standardized in the core schema but rather exist as _policies_ framed by the architects of a beckn-enabled open commerce network. 
 
-Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow its adaptability, instead of forcing all specification users to adhere to the core specification and, beckn protocol governance allows creation of network-specific policies. These policies allow sector-agnostic rules and validation criteria to be published along with the specification based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine readable manner. 
+Similarly, a network might put a limit on the number of matched items that can be returned in a single catalog object. To maintain interoperability but also allow its configurability, beckn protocol specification governance restricts modification of the core schema and actions. However, to allow adaptability, instead of forcing all specification users to adhere to the core specification, beckn protocol governance allows creation of network-specific policies. These policies allow sector-specific rules and validation criteria to be published along with the core specification, based on recommendations and comments received from various ecosystem contributors and network participants implementing the protocol. These rules and policies must be layered on the core specification and published as a separate document that can be accessed by the network participants in a machine readable manner. 
 
 
 # Abstract
@@ -51,11 +51,12 @@ Beckn Protocol is an abstracted but **highly configurable** specification. A net
 
 
 
-1. **Network : **In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
-2. **Network Participant:** Any platform that has implemented beckn protocol specification and is part of an open commerce network
-3. **Schema:** These are JSON Schema objects with properties as defined in 
-4. **Action:** These are specific events that occur during the lifecycle of a typical commerce transaction
-5. **Network Policy**: These are specific rules that apply to the implementers of a network while developing the protocol API middleware
+1. **Network:** In the context of beckn protocol, a network refers to an open commerce network formed by the instantiation of beckn protocol specification with a standard network policy
+2. **Network Manager:** An entity that instantiates a Network, and for the purposes of this document, sets Network Policy and establishes and maintains Namespaces
+3. **Network Participant:** Any platform that has implemented beckn protocol specification and is part of an open commerce Network
+4. **Schema:** These are JSON Schema objects with properties as defined in the beckn protocol, with the Namespace extensions of the Network
+5. **Action:** These are specific events that occur during the lifecycle of a typical commerce transaction
+6. **Network Policy**: These are specific rules that apply to the implementers of a network while developing the protocol API middleware
 
 
 # Problem
@@ -272,7 +273,7 @@ PaymentGatewayParams:
 
 ### Adding required fields
 
-It is also possible to add **required** properties to any attribute. For example, in the domain of mobility, the origin location’s gps coordinate must be a required field. 
+It is also possible to add **required** properties to any attribute. For example, in the domain of mobility, the origin location’s gps coordinate may be a required field. 
 
 
 ```
